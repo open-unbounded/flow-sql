@@ -1,4 +1,5 @@
 grammar FlowSql;
+
 sql
     :
     SELECT fields FROM ID (where)? ';'
@@ -26,11 +27,9 @@ fields
     : field (',' field)*
     ;
 
-
 alias
     : expr AS ID
     ;
-
 
 SELECT
     : [Ss] [Ee] [Ll] [Ee] [Cc] [Tt]
@@ -51,7 +50,6 @@ AND
 AS
     : [Aa] [Ss]
     ;
-
 
 fragment LETTER
     : [a-zA-Z_]
