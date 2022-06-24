@@ -80,9 +80,3 @@ func (s *BaseFlowSqlListener) EnterAlias(ctx *AliasContext) {}
 
 // ExitAlias is called when production alias is exited.
 func (s *BaseFlowSqlListener) ExitAlias(ctx *AliasContext) {}
-
-// EnterOrderby is called when production orderby is entered.
-func (s *BaseFlowSqlListener) EnterOrderby(ctx *OrderbyContext) {}
-
-// ExitOrderby is called when production orderby is exited.
-func (s *BaseFlowSqlListener) ExitOrderby(ctx *OrderbyContext) {}
