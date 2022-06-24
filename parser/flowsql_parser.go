@@ -36,45 +36,42 @@ func flowsqlParserInit() {
 		"", "';'", "'*'", "'/'", "'-'", "'+'", "'('", "')'", "','",
 	}
 	staticData.symbolicNames = []string{
-		"", "", "", "", "", "", "", "", "", "SELECT", "FROM", "WHERE", "ORDER_BY",
-		"AND", "AS", "ID", "NUMBER", "CP", "WS",
+		"", "", "", "", "", "", "", "", "", "SELECT", "FROM", "WHERE", "AND",
+		"AS", "ID", "NUMBER", "CP", "WS",
 	}
 	staticData.ruleNames = []string{
-		"sql", "where", "expr", "field", "fields", "alias", "orderby",
+		"sql", "where", "expr", "field", "fields", "alias",
 	}
 	staticData.predictionContextCache = antlr.NewPredictionContextCache()
 	staticData.serializedATN = []int32{
-		4, 1, 18, 77, 2, 0, 7, 0, 2, 1, 7, 1, 2, 2, 7, 2, 2, 3, 7, 3, 2, 4, 7,
-		4, 2, 5, 7, 5, 2, 6, 7, 6, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 3, 0, 20, 8, 0,
-		1, 0, 3, 0, 23, 8, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5,
-		1, 33, 8, 1, 10, 1, 12, 1, 36, 9, 1, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2,
-		1, 2, 3, 2, 45, 8, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 5, 2, 53, 8,
-		2, 10, 2, 12, 2, 56, 9, 2, 1, 3, 1, 3, 3, 3, 60, 8, 3, 1, 4, 1, 4, 1, 4,
-		5, 4, 65, 8, 4, 10, 4, 12, 4, 68, 9, 4, 1, 5, 1, 5, 1, 5, 1, 5, 1, 6, 1,
-		6, 1, 6, 1, 6, 0, 1, 4, 7, 0, 2, 4, 6, 8, 10, 12, 0, 2, 1, 0, 2, 3, 1,
-		0, 4, 5, 78, 0, 14, 1, 0, 0, 0, 2, 26, 1, 0, 0, 0, 4, 44, 1, 0, 0, 0, 6,
-		59, 1, 0, 0, 0, 8, 61, 1, 0, 0, 0, 10, 69, 1, 0, 0, 0, 12, 73, 1, 0, 0,
-		0, 14, 15, 5, 9, 0, 0, 15, 16, 3, 8, 4, 0, 16, 17, 5, 10, 0, 0, 17, 19,
-		5, 15, 0, 0, 18, 20, 3, 2, 1, 0, 19, 18, 1, 0, 0, 0, 19, 20, 1, 0, 0, 0,
-		20, 22, 1, 0, 0, 0, 21, 23, 3, 12, 6, 0, 22, 21, 1, 0, 0, 0, 22, 23, 1,
-		0, 0, 0, 23, 24, 1, 0, 0, 0, 24, 25, 5, 1, 0, 0, 25, 1, 1, 0, 0, 0, 26,
-		27, 5, 11, 0, 0, 27, 28, 5, 15, 0, 0, 28, 29, 5, 17, 0, 0, 29, 34, 3, 4,
-		2, 0, 30, 31, 5, 13, 0, 0, 31, 33, 3, 4, 2, 0, 32, 30, 1, 0, 0, 0, 33,
-		36, 1, 0, 0, 0, 34, 32, 1, 0, 0, 0, 34, 35, 1, 0, 0, 0, 35, 3, 1, 0, 0,
-		0, 36, 34, 1, 0, 0, 0, 37, 38, 6, 2, -1, 0, 38, 45, 5, 16, 0, 0, 39, 45,
-		5, 15, 0, 0, 40, 41, 5, 6, 0, 0, 41, 42, 3, 4, 2, 0, 42, 43, 5, 7, 0, 0,
-		43, 45, 1, 0, 0, 0, 44, 37, 1, 0, 0, 0, 44, 39, 1, 0, 0, 0, 44, 40, 1,
-		0, 0, 0, 45, 54, 1, 0, 0, 0, 46, 47, 10, 5, 0, 0, 47, 48, 7, 0, 0, 0, 48,
-		53, 3, 4, 2, 6, 49, 50, 10, 4, 0, 0, 50, 51, 7, 1, 0, 0, 51, 53, 3, 4,
-		2, 5, 52, 46, 1, 0, 0, 0, 52, 49, 1, 0, 0, 0, 53, 56, 1, 0, 0, 0, 54, 52,
-		1, 0, 0, 0, 54, 55, 1, 0, 0, 0, 55, 5, 1, 0, 0, 0, 56, 54, 1, 0, 0, 0,
-		57, 60, 5, 15, 0, 0, 58, 60, 3, 10, 5, 0, 59, 57, 1, 0, 0, 0, 59, 58, 1,
-		0, 0, 0, 60, 7, 1, 0, 0, 0, 61, 66, 3, 6, 3, 0, 62, 63, 5, 8, 0, 0, 63,
-		65, 3, 6, 3, 0, 64, 62, 1, 0, 0, 0, 65, 68, 1, 0, 0, 0, 66, 64, 1, 0, 0,
-		0, 66, 67, 1, 0, 0, 0, 67, 9, 1, 0, 0, 0, 68, 66, 1, 0, 0, 0, 69, 70, 3,
-		4, 2, 0, 70, 71, 5, 14, 0, 0, 71, 72, 5, 15, 0, 0, 72, 11, 1, 0, 0, 0,
-		73, 74, 5, 12, 0, 0, 74, 75, 5, 15, 0, 0, 75, 13, 1, 0, 0, 0, 8, 19, 22,
-		34, 44, 52, 54, 59, 66,
+		4, 1, 17, 70, 2, 0, 7, 0, 2, 1, 7, 1, 2, 2, 7, 2, 2, 3, 7, 3, 2, 4, 7,
+		4, 2, 5, 7, 5, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 3, 0, 18, 8, 0, 1, 0, 1, 0,
+		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5, 1, 28, 8, 1, 10, 1, 12, 1, 31, 9,
+		1, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 3, 2, 40, 8, 2, 1, 2, 1, 2,
+		1, 2, 1, 2, 1, 2, 1, 2, 5, 2, 48, 8, 2, 10, 2, 12, 2, 51, 9, 2, 1, 3, 1,
+		3, 1, 3, 3, 3, 56, 8, 3, 1, 4, 1, 4, 1, 4, 5, 4, 61, 8, 4, 10, 4, 12, 4,
+		64, 9, 4, 1, 5, 1, 5, 1, 5, 1, 5, 1, 5, 0, 1, 4, 6, 0, 2, 4, 6, 8, 10,
+		0, 2, 1, 0, 2, 3, 1, 0, 4, 5, 72, 0, 12, 1, 0, 0, 0, 2, 21, 1, 0, 0, 0,
+		4, 39, 1, 0, 0, 0, 6, 55, 1, 0, 0, 0, 8, 57, 1, 0, 0, 0, 10, 65, 1, 0,
+		0, 0, 12, 13, 5, 9, 0, 0, 13, 14, 3, 8, 4, 0, 14, 15, 5, 10, 0, 0, 15,
+		17, 5, 14, 0, 0, 16, 18, 3, 2, 1, 0, 17, 16, 1, 0, 0, 0, 17, 18, 1, 0,
+		0, 0, 18, 19, 1, 0, 0, 0, 19, 20, 5, 1, 0, 0, 20, 1, 1, 0, 0, 0, 21, 22,
+		5, 11, 0, 0, 22, 23, 5, 14, 0, 0, 23, 24, 5, 16, 0, 0, 24, 29, 3, 4, 2,
+		0, 25, 26, 5, 12, 0, 0, 26, 28, 3, 4, 2, 0, 27, 25, 1, 0, 0, 0, 28, 31,
+		1, 0, 0, 0, 29, 27, 1, 0, 0, 0, 29, 30, 1, 0, 0, 0, 30, 3, 1, 0, 0, 0,
+		31, 29, 1, 0, 0, 0, 32, 33, 6, 2, -1, 0, 33, 40, 5, 15, 0, 0, 34, 40, 5,
+		14, 0, 0, 35, 36, 5, 6, 0, 0, 36, 37, 3, 4, 2, 0, 37, 38, 5, 7, 0, 0, 38,
+		40, 1, 0, 0, 0, 39, 32, 1, 0, 0, 0, 39, 34, 1, 0, 0, 0, 39, 35, 1, 0, 0,
+		0, 40, 49, 1, 0, 0, 0, 41, 42, 10, 5, 0, 0, 42, 43, 7, 0, 0, 0, 43, 48,
+		3, 4, 2, 6, 44, 45, 10, 4, 0, 0, 45, 46, 7, 1, 0, 0, 46, 48, 3, 4, 2, 5,
+		47, 41, 1, 0, 0, 0, 47, 44, 1, 0, 0, 0, 48, 51, 1, 0, 0, 0, 49, 47, 1,
+		0, 0, 0, 49, 50, 1, 0, 0, 0, 50, 5, 1, 0, 0, 0, 51, 49, 1, 0, 0, 0, 52,
+		56, 5, 14, 0, 0, 53, 56, 3, 10, 5, 0, 54, 56, 1, 0, 0, 0, 55, 52, 1, 0,
+		0, 0, 55, 53, 1, 0, 0, 0, 55, 54, 1, 0, 0, 0, 56, 7, 1, 0, 0, 0, 57, 62,
+		3, 6, 3, 0, 58, 59, 5, 8, 0, 0, 59, 61, 3, 6, 3, 0, 60, 58, 1, 0, 0, 0,
+		61, 64, 1, 0, 0, 0, 62, 60, 1, 0, 0, 0, 62, 63, 1, 0, 0, 0, 63, 9, 1, 0,
+		0, 0, 64, 62, 1, 0, 0, 0, 65, 66, 3, 4, 2, 0, 66, 67, 5, 13, 0, 0, 67,
+		68, 5, 14, 0, 0, 68, 11, 1, 0, 0, 0, 7, 17, 29, 39, 47, 49, 55, 62,
 	}
 	deserializer := antlr.NewATNDeserializer(nil)
 	staticData.atn = deserializer.Deserialize(staticData.serializedATN)
@@ -112,36 +109,34 @@ func NewFlowSqlParser(input antlr.TokenStream) *FlowSqlParser {
 
 // FlowSqlParser tokens.
 const (
-	FlowSqlParserEOF      = antlr.TokenEOF
-	FlowSqlParserT__0     = 1
-	FlowSqlParserT__1     = 2
-	FlowSqlParserT__2     = 3
-	FlowSqlParserT__3     = 4
-	FlowSqlParserT__4     = 5
-	FlowSqlParserT__5     = 6
-	FlowSqlParserT__6     = 7
-	FlowSqlParserT__7     = 8
-	FlowSqlParserSELECT   = 9
-	FlowSqlParserFROM     = 10
-	FlowSqlParserWHERE    = 11
-	FlowSqlParserORDER_BY = 12
-	FlowSqlParserAND      = 13
-	FlowSqlParserAS       = 14
-	FlowSqlParserID       = 15
-	FlowSqlParserNUMBER   = 16
-	FlowSqlParserCP       = 17
-	FlowSqlParserWS       = 18
+	FlowSqlParserEOF    = antlr.TokenEOF
+	FlowSqlParserT__0   = 1
+	FlowSqlParserT__1   = 2
+	FlowSqlParserT__2   = 3
+	FlowSqlParserT__3   = 4
+	FlowSqlParserT__4   = 5
+	FlowSqlParserT__5   = 6
+	FlowSqlParserT__6   = 7
+	FlowSqlParserT__7   = 8
+	FlowSqlParserSELECT = 9
+	FlowSqlParserFROM   = 10
+	FlowSqlParserWHERE  = 11
+	FlowSqlParserAND    = 12
+	FlowSqlParserAS     = 13
+	FlowSqlParserID     = 14
+	FlowSqlParserNUMBER = 15
+	FlowSqlParserCP     = 16
+	FlowSqlParserWS     = 17
 )
 
 // FlowSqlParser rules.
 const (
-	FlowSqlParserRULE_sql     = 0
-	FlowSqlParserRULE_where   = 1
-	FlowSqlParserRULE_expr    = 2
-	FlowSqlParserRULE_field   = 3
-	FlowSqlParserRULE_fields  = 4
-	FlowSqlParserRULE_alias   = 5
-	FlowSqlParserRULE_orderby = 6
+	FlowSqlParserRULE_sql    = 0
+	FlowSqlParserRULE_where  = 1
+	FlowSqlParserRULE_expr   = 2
+	FlowSqlParserRULE_field  = 3
+	FlowSqlParserRULE_fields = 4
+	FlowSqlParserRULE_alias  = 5
 )
 
 // ISqlContext is an interface to support dynamic dispatch.
@@ -226,22 +221,6 @@ func (s *SqlContext) Where() IWhereContext {
 	return t.(IWhereContext)
 }
 
-func (s *SqlContext) Orderby() IOrderbyContext {
-	var t antlr.RuleContext
-	for _, ctx := range s.GetChildren() {
-		if _, ok := ctx.(IOrderbyContext); ok {
-			t = ctx.(antlr.RuleContext)
-			break
-		}
-	}
-
-	if t == nil {
-		return nil
-	}
-
-	return t.(IOrderbyContext)
-}
-
 func (s *SqlContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
@@ -298,45 +277,34 @@ func (p *FlowSqlParser) Sql() (localctx ISqlContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(14)
+		p.SetState(12)
 		p.Match(FlowSqlParserSELECT)
 	}
 	{
-		p.SetState(15)
+		p.SetState(13)
 		p.Fields()
 	}
 	{
-		p.SetState(16)
+		p.SetState(14)
 		p.Match(FlowSqlParserFROM)
 	}
 	{
-		p.SetState(17)
+		p.SetState(15)
 		p.Match(FlowSqlParserID)
 	}
-	p.SetState(19)
+	p.SetState(17)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	if _la == FlowSqlParserWHERE {
 		{
-			p.SetState(18)
+			p.SetState(16)
 			p.Where()
 		}
 
 	}
-	p.SetState(22)
-	p.GetErrorHandler().Sync(p)
-	_la = p.GetTokenStream().LA(1)
-
-	if _la == FlowSqlParserORDER_BY {
-		{
-			p.SetState(21)
-			p.Orderby()
-		}
-
-	}
 	{
-		p.SetState(24)
+		p.SetState(19)
 		p.Match(FlowSqlParserT__0)
 	}
 
@@ -498,36 +466,36 @@ func (p *FlowSqlParser) Where() (localctx IWhereContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(26)
+		p.SetState(21)
 		p.Match(FlowSqlParserWHERE)
 	}
 	{
-		p.SetState(27)
+		p.SetState(22)
 		p.Match(FlowSqlParserID)
 	}
 	{
-		p.SetState(28)
+		p.SetState(23)
 		p.Match(FlowSqlParserCP)
 	}
 	{
-		p.SetState(29)
+		p.SetState(24)
 		p.expr(0)
 	}
-	p.SetState(34)
+	p.SetState(29)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	for _la == FlowSqlParserAND {
 		{
-			p.SetState(30)
+			p.SetState(25)
 			p.Match(FlowSqlParserAND)
 		}
 		{
-			p.SetState(31)
+			p.SetState(26)
 			p.expr(0)
 		}
 
-		p.SetState(36)
+		p.SetState(31)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 	}
@@ -937,7 +905,7 @@ func (p *FlowSqlParser) expr(_p int) (localctx IExprContext) {
 	var _alt int
 
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(44)
+	p.SetState(39)
 	p.GetErrorHandler().Sync(p)
 
 	switch p.GetTokenStream().LA(1) {
@@ -947,7 +915,7 @@ func (p *FlowSqlParser) expr(_p int) (localctx IExprContext) {
 		_prevctx = localctx
 
 		{
-			p.SetState(38)
+			p.SetState(33)
 			p.Match(FlowSqlParserNUMBER)
 		}
 
@@ -956,7 +924,7 @@ func (p *FlowSqlParser) expr(_p int) (localctx IExprContext) {
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(39)
+			p.SetState(34)
 			p.Match(FlowSqlParserID)
 		}
 
@@ -965,15 +933,15 @@ func (p *FlowSqlParser) expr(_p int) (localctx IExprContext) {
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(40)
+			p.SetState(35)
 			p.Match(FlowSqlParserT__5)
 		}
 		{
-			p.SetState(41)
+			p.SetState(36)
 			p.expr(0)
 		}
 		{
-			p.SetState(42)
+			p.SetState(37)
 			p.Match(FlowSqlParserT__6)
 		}
 
@@ -981,9 +949,9 @@ func (p *FlowSqlParser) expr(_p int) (localctx IExprContext) {
 		panic(antlr.NewNoViableAltException(p, nil, nil, nil, nil, nil))
 	}
 	p.GetParserRuleContext().SetStop(p.GetTokenStream().LT(-1))
-	p.SetState(54)
+	p.SetState(49)
 	p.GetErrorHandler().Sync(p)
-	_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 5, p.GetParserRuleContext())
+	_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 4, p.GetParserRuleContext())
 
 	for _alt != 2 && _alt != antlr.ATNInvalidAltNumber {
 		if _alt == 1 {
@@ -991,19 +959,19 @@ func (p *FlowSqlParser) expr(_p int) (localctx IExprContext) {
 				p.TriggerExitRuleEvent()
 			}
 			_prevctx = localctx
-			p.SetState(52)
+			p.SetState(47)
 			p.GetErrorHandler().Sync(p)
-			switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 4, p.GetParserRuleContext()) {
+			switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 3, p.GetParserRuleContext()) {
 			case 1:
 				localctx = NewMulDivContext(p, NewExprContext(p, _parentctx, _parentState))
 				p.PushNewRecursionContext(localctx, _startState, FlowSqlParserRULE_expr)
-				p.SetState(46)
+				p.SetState(41)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 5)) {
 					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 5)", ""))
 				}
 				{
-					p.SetState(47)
+					p.SetState(42)
 
 					var _lt = p.GetTokenStream().LT(1)
 
@@ -1021,20 +989,20 @@ func (p *FlowSqlParser) expr(_p int) (localctx IExprContext) {
 					}
 				}
 				{
-					p.SetState(48)
+					p.SetState(43)
 					p.expr(6)
 				}
 
 			case 2:
 				localctx = NewAddSubContext(p, NewExprContext(p, _parentctx, _parentState))
 				p.PushNewRecursionContext(localctx, _startState, FlowSqlParserRULE_expr)
-				p.SetState(49)
+				p.SetState(44)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 4)) {
 					panic(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 4)", ""))
 				}
 				{
-					p.SetState(50)
+					p.SetState(45)
 
 					var _lt = p.GetTokenStream().LT(1)
 
@@ -1052,16 +1020,16 @@ func (p *FlowSqlParser) expr(_p int) (localctx IExprContext) {
 					}
 				}
 				{
-					p.SetState(51)
+					p.SetState(46)
 					p.expr(5)
 				}
 
 			}
 
 		}
-		p.SetState(56)
+		p.SetState(51)
 		p.GetErrorHandler().Sync(p)
-		_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 5, p.GetParserRuleContext())
+		_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 4, p.GetParserRuleContext())
 	}
 
 	return localctx
@@ -1178,22 +1146,25 @@ func (p *FlowSqlParser) Field() (localctx IFieldContext) {
 		}
 	}()
 
-	p.SetState(59)
+	p.SetState(55)
 	p.GetErrorHandler().Sync(p)
-	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 6, p.GetParserRuleContext()) {
+	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 5, p.GetParserRuleContext()) {
 	case 1:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(57)
+			p.SetState(52)
 			p.Match(FlowSqlParserID)
 		}
 
 	case 2:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(58)
+			p.SetState(53)
 			p.Alias()
 		}
+
+	case 3:
+		p.EnterOuterAlt(localctx, 3)
 
 	}
 
@@ -1335,24 +1306,24 @@ func (p *FlowSqlParser) Fields() (localctx IFieldsContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(61)
+		p.SetState(57)
 		p.Field()
 	}
-	p.SetState(66)
+	p.SetState(62)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	for _la == FlowSqlParserT__7 {
 		{
-			p.SetState(62)
+			p.SetState(58)
 			p.Match(FlowSqlParserT__7)
 		}
 		{
-			p.SetState(63)
+			p.SetState(59)
 			p.Field()
 		}
 
-		p.SetState(68)
+		p.SetState(64)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 	}
@@ -1477,127 +1448,15 @@ func (p *FlowSqlParser) Alias() (localctx IAliasContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(69)
+		p.SetState(65)
 		p.expr(0)
 	}
 	{
-		p.SetState(70)
+		p.SetState(66)
 		p.Match(FlowSqlParserAS)
 	}
 	{
-		p.SetState(71)
-		p.Match(FlowSqlParserID)
-	}
-
-	return localctx
-}
-
-// IOrderbyContext is an interface to support dynamic dispatch.
-type IOrderbyContext interface {
-	antlr.ParserRuleContext
-
-	// GetParser returns the parser.
-	GetParser() antlr.Parser
-
-	// IsOrderbyContext differentiates from other interfaces.
-	IsOrderbyContext()
-}
-
-type OrderbyContext struct {
-	*antlr.BaseParserRuleContext
-	parser antlr.Parser
-}
-
-func NewEmptyOrderbyContext() *OrderbyContext {
-	var p = new(OrderbyContext)
-	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = FlowSqlParserRULE_orderby
-	return p
-}
-
-func (*OrderbyContext) IsOrderbyContext() {}
-
-func NewOrderbyContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *OrderbyContext {
-	var p = new(OrderbyContext)
-
-	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
-
-	p.parser = parser
-	p.RuleIndex = FlowSqlParserRULE_orderby
-
-	return p
-}
-
-func (s *OrderbyContext) GetParser() antlr.Parser { return s.parser }
-
-func (s *OrderbyContext) ORDER_BY() antlr.TerminalNode {
-	return s.GetToken(FlowSqlParserORDER_BY, 0)
-}
-
-func (s *OrderbyContext) ID() antlr.TerminalNode {
-	return s.GetToken(FlowSqlParserID, 0)
-}
-
-func (s *OrderbyContext) GetRuleContext() antlr.RuleContext {
-	return s
-}
-
-func (s *OrderbyContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
-	return antlr.TreesStringTree(s, ruleNames, recog)
-}
-
-func (s *OrderbyContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(FlowSqlListener); ok {
-		listenerT.EnterOrderby(s)
-	}
-}
-
-func (s *OrderbyContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(FlowSqlListener); ok {
-		listenerT.ExitOrderby(s)
-	}
-}
-
-func (s *OrderbyContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
-	switch t := visitor.(type) {
-	case FlowSqlVisitor:
-		return t.VisitOrderby(s)
-
-	default:
-		return t.VisitChildren(s)
-	}
-}
-
-func (p *FlowSqlParser) Orderby() (localctx IOrderbyContext) {
-	this := p
-	_ = this
-
-	localctx = NewOrderbyContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 12, FlowSqlParserRULE_orderby)
-
-	defer func() {
-		p.ExitRule()
-	}()
-
-	defer func() {
-		if err := recover(); err != nil {
-			if v, ok := err.(antlr.RecognitionException); ok {
-				localctx.SetException(v)
-				p.GetErrorHandler().ReportError(p, v)
-				p.GetErrorHandler().Recover(p, v)
-			} else {
-				panic(err)
-			}
-		}
-	}()
-
-	p.EnterOuterAlt(localctx, 1)
-	{
-		p.SetState(73)
-		p.Match(FlowSqlParserORDER_BY)
-	}
-	{
-		p.SetState(74)
+		p.SetState(67)
 		p.Match(FlowSqlParserID)
 	}
 

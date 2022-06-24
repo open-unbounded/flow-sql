@@ -38,9 +38,6 @@ type FlowSqlListener interface {
 	// EnterAlias is called when entering the alias production.
 	EnterAlias(c *AliasContext)
 
-	// EnterOrderby is called when entering the orderby production.
-	EnterOrderby(c *OrderbyContext)
-
 	// ExitSql is called when exiting the sql production.
 	ExitSql(c *SqlContext)
 
@@ -70,7 +67,4 @@ type FlowSqlListener interface {
 
 	// ExitAlias is called when exiting the alias production.
 	ExitAlias(c *AliasContext)
-
-	// ExitOrderby is called when exiting the orderby production.
-	ExitOrderby(c *OrderbyContext)
 }

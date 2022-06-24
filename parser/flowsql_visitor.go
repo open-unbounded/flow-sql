@@ -37,7 +37,4 @@ type FlowSqlVisitor interface {
 
 	// Visit a parse tree produced by FlowSqlParser#alias.
 	VisitAlias(ctx *AliasContext) interface{}
-
-	// Visit a parse tree produced by FlowSqlParser#orderby.
-	VisitOrderby(ctx *OrderbyContext) interface{}
 }

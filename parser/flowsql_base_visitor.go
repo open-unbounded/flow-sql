@@ -47,7 +47,3 @@ func (v *BaseFlowSqlVisitor) VisitFields(ctx *FieldsContext) interface{} {
 func (v *BaseFlowSqlVisitor) VisitAlias(ctx *AliasContext) interface{} {
 	return v.VisitChildren(ctx)
 }
-
-func (v *BaseFlowSqlVisitor) VisitOrderby(ctx *OrderbyContext) interface{} {
-	return v.VisitChildren(ctx)
-}
