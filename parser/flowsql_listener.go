@@ -32,6 +32,9 @@ type FlowSqlListener interface {
 	// EnterField is called when entering the field production.
 	EnterField(c *FieldContext)
 
+	// EnterFields is called when entering the fields production.
+	EnterFields(c *FieldsContext)
+
 	// EnterAlias is called when entering the alias production.
 	EnterAlias(c *AliasContext)
 
@@ -61,6 +64,9 @@ type FlowSqlListener interface {
 
 	// ExitField is called when exiting the field production.
 	ExitField(c *FieldContext)
+
+	// ExitFields is called when exiting the fields production.
+	ExitFields(c *FieldsContext)
 
 	// ExitAlias is called when exiting the alias production.
 	ExitAlias(c *AliasContext)
