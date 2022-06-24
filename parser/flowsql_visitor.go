@@ -32,6 +32,9 @@ type FlowSqlVisitor interface {
 	// Visit a parse tree produced by FlowSqlParser#field.
 	VisitField(ctx *FieldContext) interface{}
 
+	// Visit a parse tree produced by FlowSqlParser#fields.
+	VisitFields(ctx *FieldsContext) interface{}
+
 	// Visit a parse tree produced by FlowSqlParser#alias.
 	VisitAlias(ctx *AliasContext) interface{}
 

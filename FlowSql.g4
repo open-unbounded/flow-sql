@@ -1,7 +1,8 @@
 grammar FlowSql;
+
 sql
     :
-    SELECT field FROM ID (where)? (orderby)? ';'
+    SELECT fields FROM ID (where)? ';'
     ;
 
 where
@@ -18,15 +19,16 @@ expr
 
 field
     : ID
-    | alias (',' alias)*
+    | alias
+    |
+    ;
+
+fields
+    : field (',' field)*
     ;
 
 alias
     : expr AS ID
-    ;
-
-orderby
-    : ORDER_BY ID
     ;
 
 SELECT
@@ -41,18 +43,12 @@ WHERE
     : [Ww] [Hh] [Ee] [Rr] [Ee]
     ;
 
-ORDER_BY
-    : [Oo] [Rr] [Dd] [Ee] [Rr] (' ')+  [Bb] [Yy]
-    ;
 AND
     : [Aa] [Nn] [Dd]
     ;
+
 AS
     : [Aa] [Ss]
-    ;
-
-fragment DIGIT
-    : [0-9]
     ;
 
 fragment LETTER
@@ -60,10 +56,17 @@ fragment LETTER
     ;
 
 ID
-    : LETTER+ DIGIT* LETTER*;
+    : [a-zA-Z] [0-9a-zA-Z]*
+    ;
+
+fragment INT
+    : '0'
+    | [1-9] [0-9]*
+    ;
 
 NUMBER
-    : [0-9]+('.'[0-9]+)?;
+    : '-'? INT ('.'INT+)?
+    ;
 
 CP
     : '='
@@ -71,6 +74,7 @@ CP
     | '<'
     | '>='
     | '<='
+    | '!='
     ;
 
 WS

@@ -69,6 +69,12 @@ func (s *BaseFlowSqlListener) EnterField(ctx *FieldContext) {}
 // ExitField is called when production field is exited.
 func (s *BaseFlowSqlListener) ExitField(ctx *FieldContext) {}
 
+// EnterFields is called when production fields is entered.
+func (s *BaseFlowSqlListener) EnterFields(ctx *FieldsContext) {}
+
+// ExitFields is called when production fields is exited.
+func (s *BaseFlowSqlListener) ExitFields(ctx *FieldsContext) {}
+
 // EnterAlias is called when production alias is entered.
 func (s *BaseFlowSqlListener) EnterAlias(ctx *AliasContext) {}
 

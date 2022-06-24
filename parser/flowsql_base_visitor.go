@@ -40,6 +40,10 @@ func (v *BaseFlowSqlVisitor) VisitField(ctx *FieldContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseFlowSqlVisitor) VisitFields(ctx *FieldsContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseFlowSqlVisitor) VisitAlias(ctx *AliasContext) interface{} {
 	return v.VisitChildren(ctx)
 }
