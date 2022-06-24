@@ -20,7 +20,6 @@ expr
 field
     : ID
     | alias
-    |
     ;
 
 fields
